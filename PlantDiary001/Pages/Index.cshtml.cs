@@ -20,9 +20,12 @@ namespace PlantDiary001.Pages
             _logger = logger;
         }
 
-        public void OnGet()
+        public JsonResult OnGet()
         {
-            
+
+            // this new array will hold only specimens that like water.
+            List<Specimen> waterLovingSpecimens = new List<Specimen>();
+
             using (WebClient webClient = new WebClient())
             {
                 string plantJson = webClient.DownloadString("http://plantplaces.com/perl/mobile/viewplantsjsonarray.pl?WetTolerant=on");
@@ -38,9 +41,6 @@ namespace PlantDiary001.Pages
                 {
                     plants.Add(plant.Id, plant);
                 }
-
-                // this new array will hold only specimens that like water.
-                List<Specimen> waterLovingSpecimens = new List<Specimen>();
 
                 // iterate over the specimens, to find which ones like water.
                 foreach(Specimen specimen in allSpecimens)
@@ -58,6 +58,8 @@ namespace PlantDiary001.Pages
             int yearStarted = 2006;
             string name = "My Plant Diary";
             ViewData["Name"] = name;
+
+            return new JsonResult(waterLovingSpecimens);
         }
     }
 }
