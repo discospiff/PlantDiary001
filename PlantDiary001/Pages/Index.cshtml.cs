@@ -32,20 +32,22 @@ namespace PlantDiary001.Pages
                 Welcome welcome = Welcome.FromJson(jsonString);
                 Specimen[] allSpecimens = welcome.Specimens;
 
+                // populate a dictionary with plant data.
+                IDictionary<long, Plant> plants = new Dictionary<long, Plant>();
+                foreach(Plant plant in allPlants)
+                {
+                    plants.Add(plant.Id, plant);
+                }
+
                 // this new array will hold only specimens that like water.
                 List<Specimen> waterLovingSpecimens = new List<Specimen>();
 
                 // iterate over the specimens, to find which ones like water.
                 foreach(Specimen specimen in allSpecimens)
                 {
-                    // find the matching plant record for this specimen.
-                    foreach(Plant plant in allPlants)
+                    if (plants.ContainsKey(specimen.PlantId))
                     {
-                        if (plant.Id == specimen.PlantId)
-                        {
-                            // we have a match!
-                            waterLovingSpecimens.Add(specimen);
-                        }
+                        waterLovingSpecimens.Add(specimen);
                     }
                 }
 
