@@ -1,0 +1,79 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$ref": "#/definitions/Welcome",
+  "title": "Plant Specimens",
+  "description": "Plant specimens near a GPS location",
+  "definitions": {
+    "Welcome": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "specimens": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Specimen"
+          }
+        }
+      },
+      "required": [
+        "specimens"
+      ],
+      "title": "Plant"
+    },
+    "Specimen": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "lat": {
+          "type": "number",
+          "title": "Latitude",
+          "description": "the location of this specimen",
+          "minimum": -90,
+          "maximum":  90
+        },
+        "lng": {
+          "type": "number",
+          "minimum": -180,
+          "maximum":  180
+        },
+        "plant_id": {
+          "type": "integer"
+        },
+        "specimen_id": {
+          "type": "integer"
+        },
+        "common": {
+          "type": "string"
+        },
+        "genus": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength" :  65
+
+        },
+        "species": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "address",
+        "common",
+        "genus",
+        "lat",
+        "lng",
+        "notes",
+        "plant_id",
+        "species",
+        "specimen_id"
+      ],
+      "title": "Specimen"
+    }
+
+  }
+}
