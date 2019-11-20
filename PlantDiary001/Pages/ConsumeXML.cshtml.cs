@@ -75,16 +75,24 @@ namespace PlantDiary001.Pages
 
             XmlReader xmlReader = XmlReader.Create(file, settings);
 
-            while (xmlReader.Read())
-            {
+            try { 
+                while (xmlReader.Read())
+                {
 
+                }
+                result = "validation passed!";
+                ViewData["result"] = "Validation Passed!";
+            } catch (Exception e)
+            {
+                // we only get here if there is a validation error.
+                ViewData["result"] = e.Message;
             }
-            result = "validation passed!";
         }
 
         public void ValidationEventHandler(object sender, ValidationEventArgs args)
         {
             result = "Validation failed.  Message: " + args.Message;
+            throw new Exception("Validation failed.  Message: " + args.Message);
         }
     }
 }
