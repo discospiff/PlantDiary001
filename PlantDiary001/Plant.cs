@@ -50,7 +50,7 @@ namespace QuickTypePlants
         [JsonProperty("deepShade")]
         public long DeepShade { get; set; }
     }
-
+     
     public partial class Plant
     {
         public static Plant[] FromJson(string json) => JsonConvert.DeserializeObject<Plant[]>(json, QuickTypePlants.Converter.Settings);
