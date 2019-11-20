@@ -1,0 +1,11 @@
+﻿@page
+@model PlantDiary001.Pages.ConsumeXMLModel
+@{
+    ViewData["Title"] = "ConsumeXML";
+}
+
+<h1>ConsumeXML</h1>
+<form method="post" enctype="multipart/form-data">
+    <input type="file" asp-for="Upload"/>
+    <input type="submit"/>
+</form>

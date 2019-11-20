@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="plants.xsl"?>
+<plant xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="plants.xsd">
+  <!-- All payload data belongs here -->
+  <genus>Cercis</genus>
+  <species>canadensis</species>
+  <common_name>Eastern Redbud</common_name>
+  <height>25</height>
+  <begin_bloom_date>2017-03-15</begin_bloom_date>
+  <end_bloom_date>2017-03-30</end_bloom_date>
+  <edible>true</edible>
+  <sun_tolerance>full_sun</sun_tolerance>
+  <bloom_color>violet</bloom_color>
+  <specimens>
+    <specimen>
+      <latitude>39.47</latitude>
+      <longitude>-84.51</longitude>
+      <planted_by>Brandan Jones</planted_by>
+      <comments>Beautiful tree!</comments>
+    </specimen>
+    <specimen>
+      <latitude>52.40</latitude>
+      <longitude>1.00</longitude>
+      <planted_by>Joe Bloggs</planted_by>
+      <comments>RBG Kew</comments>
+    </specimen>
+    <specimen>
+      <latitude>-22.50</latitude>
+      <longitude>-68.25</longitude>
+      <planted_by>Guillermo Sanchez</planted_by>
+      <comments>Lovely Specimen!</comments>
+    </specimen>
+    <specimen>
+      <latitude>-25.50</latitude>
+      <longitude>38.25</longitude>
+      <planted_by>Dave Jones</planted_by>
+      <comments>wonderful Specimen!</comments>
+    </specimen>
+  </specimens>
+</plant>
