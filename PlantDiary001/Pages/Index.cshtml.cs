@@ -39,7 +39,7 @@ namespace PlantDiary001.Pages
             foreach(QuickTypeWeather.Datum weatherDatum in weatherData)
             {
                 precip = weatherDatum.Precip;
-            }
+            } 
 
             string jsonString = GetData("https://www.plantplaces.com/perl/mobile/viewspecimenlocations.pl?Lat=39.14455075&Lng=-84.5093939666667&Range=0.5&Source=location&Version=2");
             // do some validation before we consume the data.
