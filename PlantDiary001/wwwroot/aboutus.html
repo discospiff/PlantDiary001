@@ -6,6 +6,18 @@
     <link rel="stylesheet" href="css/styles.css" type="text/css" />
     <link rel="stylesheet" href="css/mobile.css" type="text/css" media="screen and (max-device-width: 480px)" />
     <link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css" />
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#Combined_Name").autocomplete({
+                source: ["White Oak", "White Pine", "White Sunflower", "White Rose"],
+                minLength: 3
+            });
+        });
+
+    </script>
 </head>
 <body>
     <div id="topnav">
@@ -17,7 +29,7 @@
         <h1>Record your plants with Plant Diary</h1>
         <p>Plants are good.  So good, we eat them</p>
         <form action="http://plantplaces.com/perl/viewplants.pl" method="get">
-            <input name="Combined_Name" type="text" placeholder="Enter Plant Name"/>
+            <input name="Combined_Name" type="text" placeholder="Enter Plant Name" id="Combined_Name"/>
             <input type="submit"/>
         </form>
         <em>What can you do with this site?</em>
