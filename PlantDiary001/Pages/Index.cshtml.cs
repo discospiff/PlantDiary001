@@ -41,14 +41,14 @@ namespace PlantDiary001.Pages
                 precip = weatherDatum.Precip;
             } 
 
-            string jsonString = GetData("https://www.plantplaces.com/perl/mobile/viewspecimenlocations.pl?Lat=39.14455075&Lng=-84.5093939666667&Range=0.5&Source=location&Version=2");
+            string specimensNearLocations = GetData("https://www.plantplaces.com/perl/mobile/viewspecimenlocations.pl?Lat=39.14455075&Lng=-84.5093939666667&Range=0.5&Source=location&Version=2");
             // do some validation before we consume the data.
             string strSchema = System.IO.File.ReadAllText("SpecimenSchema.json");
             JSchema schema = JSchema.Parse(strSchema);
-            JObject jsonObject = JObject.Parse(jsonString);
+            JObject jsonObject = JObject.Parse(specimensNearLocations);
             if (jsonObject.IsValid(schema))
             {
-                Welcome welcome = Welcome.FromJson(jsonString);
+                Welcome welcome = Welcome.FromJson(specimensNearLocations);
                 Specimen[] allSpecimens = welcome.Specimens;
 
                 // populate a dictionary with plant data.
